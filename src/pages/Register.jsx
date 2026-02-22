@@ -52,7 +52,7 @@ export default function Register() {
       await API.post("accounts/register/", data);
 
       alert("Registered successfully!");
-      navigate("/");
+      navigate("/login");
     } catch (err) {
       alert("Registration failed");
     }
