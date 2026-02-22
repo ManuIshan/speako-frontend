@@ -29,7 +29,7 @@ import API from "../api/axios";
 import CourseCard from "../pages/CourseCard";
 import { useNavigate } from "react-router-dom";
 import "./Dashboard.css";
-
+import { motion } from "framer-motion";
 const { Sider, Content } = Layout;
 
 export default function Dashboard() {
