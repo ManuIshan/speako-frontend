@@ -2,33 +2,44 @@ import { Navbar, Nav, Container } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import API from "../api/axios";
 import "./Navbar.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 export default function CustomNavbar() {
   const [user, setUser] = useState(null);
   const [expanded, setExpanded] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const BASE_URL = import.meta.env.VITE_API_URL;
 
+  // 🔥 Refetch profile whenever route changes
   useEffect(() => {
     const token = localStorage.getItem("access");
-    if (!token) return;
+
+    if (!token) {
+      setUser(null);
+      return;
+    }
 
     API.get("/accounts/profile/")
-      .then((res) => setUser(res.data))
-      .catch((err) => console.log(err));
-  }, []);
+      .then((res) => {
+        setUser(res.data);
+      })
+      .catch(() => {
+        setUser(null);
+      });
+  }, [location]);
 
   const handleNavClick = (path) => {
     navigate(path);
     setExpanded(false);
   };
 
+  // 🔥 Cache-busting added (?t=timestamp)
   const avatarUrl = user?.profile_picture
     ? user.profile_picture.startsWith("http")
-      ? user.profile_picture
-      : `${BASE_URL}${user.profile_picture}`
+      ? `${user.profile_picture}?t=${Date.now()}`
+      : `${BASE_URL}${user.profile_picture}?t=${Date.now()}`
     : "https://via.placeholder.com/40";
 
   return (
