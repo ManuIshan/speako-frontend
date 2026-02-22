@@ -6,14 +6,16 @@ import { Link, useNavigate } from "react-router-dom";
 
 export default function CustomNavbar() {
   const [user, setUser] = useState(null);
-  const [expanded, setExpanded] = useState(false); 
+  const [expanded, setExpanded] = useState(false);
   const navigate = useNavigate();
+
+  const BASE_URL = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
     const token = localStorage.getItem("access");
     if (!token) return;
 
-    API.get("accounts/profile/")
+    API.get("/accounts/profile/")
       .then((res) => setUser(res.data))
       .catch((err) => console.log(err));
   }, []);
@@ -23,12 +25,18 @@ export default function CustomNavbar() {
     setExpanded(false);
   };
 
+  const avatarUrl = user?.profile_picture
+    ? user.profile_picture.startsWith("http")
+      ? user.profile_picture
+      : `${BASE_URL}${user.profile_picture}`
+    : "https://via.placeholder.com/40";
+
   return (
     <Navbar
       expand="lg"
       fixed="top"
       className="custom-navbar"
-      expanded={expanded} 
+      expanded={expanded}
     >
       <Container fluid className="nav-container">
 
@@ -36,7 +44,7 @@ export default function CustomNavbar() {
           as={Link}
           to="/home"
           className="brand-wrapper"
-          onClick={() => setExpanded(false)} 
+          onClick={() => setExpanded(false)}
         >
           <img
             src="/navbarsymbol.svg"
@@ -49,7 +57,7 @@ export default function CustomNavbar() {
         <Navbar.Toggle
           aria-controls="basic-navbar-nav"
           className="custom-toggler"
-          onClick={() => setExpanded(expanded ? false : true)} 
+          onClick={() => setExpanded(!expanded)}
         />
 
         <Navbar.Collapse
@@ -84,13 +92,7 @@ export default function CustomNavbar() {
         <div className="nav-right">
           {user && (
             <img
-              src={
-                user.profile_picture
-                  ? user.profile_picture.startsWith("http")
-                    ? user.profile_picture
-                    : `http://127.0.0.1:8000${user.profile_picture}`
-                  : "https://via.placeholder.com/40"
-              }
+              src={avatarUrl}
               alt="avatar"
               className="avatar"
               onClick={() => {

@@ -11,6 +11,8 @@ export default function CourseDetail() {
   const navigate = useNavigate();
   const [course, setCourse] = useState(null);
 
+  const BASE_URL = import.meta.env.VITE_API_URL;
+
   useEffect(() => {
     API.get(`/courses/detail/${id}/`)
       .then((res) => setCourse(res.data))
@@ -71,17 +73,19 @@ export default function CourseDetail() {
 
           {course.is_unlocked ? (
             <div className="image-grid">
-              {course.assessment_images?.map((img, index) => (
-                <img className="text-center"
-                  key={index}
-                  src={
-                    img.startsWith("http")
-                      ? img
-                      : `http://127.0.0.1:8000${img}`
-                  }
-                  alt="assessment"
-                />
-              ))}
+              {course.assessment_images?.map((img, index) => {
+                const imageUrl = img.startsWith("http")
+                  ? img
+                  : `${BASE_URL}${img}`;
+
+                return (
+                  <img
+                    key={index}
+                    src={imageUrl}
+                    alt="assessment"
+                  />
+                );
+              })}
             </div>
           ) : (
             <div className="locked-box">
@@ -97,7 +101,7 @@ export default function CourseDetail() {
               href={
                 course.pdf.startsWith("http")
                   ? course.pdf
-                  : `http://127.0.0.1:8000${course.pdf}`
+                  : `${BASE_URL}${course.pdf}`
               }
               target="_blank"
               rel="noreferrer"

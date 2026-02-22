@@ -21,7 +21,7 @@ export default function EnrollPage() {
     setLoading(true);
 
     try {
-      await API.post("enrollments/create/", {
+      await API.post("/enrollments/create/", {
         course_id: id,
         payment_id: "DEMO-PAYMENT-123",
       });

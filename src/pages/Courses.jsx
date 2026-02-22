@@ -1,7 +1,7 @@
 import { Container, Row, Col, Button, Badge } from "react-bootstrap";
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import API from "../api/axios";
 import {
   FaBookOpen,
   FaGraduationCap,
@@ -23,18 +23,14 @@ export default function Courses() {
 
   useEffect(() => {
     // Fetch courses
-    axios
-      .get(`${BASE_URL}/api/courses/`)
+   API.get("/courses/")
       .then((res) => setCourses(res.data))
       .catch((err) => console.log("Error fetching courses:", err));
 
     // Fetch enrollments if user is logged in
     if (token) {
       console.log("Fetching enrollments with token:", token.substring(0, 10) + "...");
-      axios
-        .get(`${BASE_URL}/api/enrollments/my/`, {
-          headers: { Authorization: `Bearer ${token}` },
-        })
+      API.get("/enrollments/my/")
         .then((res) => {
           console.log("✓ Enrollments fetched successfully:", res.data);
           setEnrollments(res.data || []);
@@ -63,13 +59,9 @@ export default function Courses() {
     }
 
     try {
-      await axios.post(
-        `${BASE_URL}/api/enrollments/create/`,
-        { course_id: courseId },
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      );
+      await API.post("/enrollments/create/", {
+  course_id: courseId,
+});
 
       alert("Enrollment requested! Waiting for admin approval.");
       window.location.reload();
@@ -168,11 +160,10 @@ export default function Courses() {
                     {filtered.map((course) => {
 
                       const imageUrl = course.image
-                        ? course.image.startsWith("http")
-                          ? course.image
-                          : `${BASE_URL}${course.image}`
-                        : null;
-
+  ? course.image.startsWith("http")
+    ? course.image
+    : `${import.meta.env.VITE_API_URL}${course.image}`
+  : null;
                       const status = getEnrollmentStatus(course.id);
 
                       return (

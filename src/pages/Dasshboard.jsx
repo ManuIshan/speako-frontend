@@ -25,7 +25,6 @@ import {
   CameraOutlined,
   CheckCircleOutlined,
 } from "@ant-design/icons";
-import { motion } from "framer-motion";
 import API from "../api/axios";
 import CourseCard from "../pages/CourseCard";
 import { useNavigate } from "react-router-dom";
@@ -48,17 +47,17 @@ export default function Dashboard() {
   }, []);
 
   const loadDashboard = () => {
-    API.get("accounts/dashboard/")
-      .then((res) => {
+API.get("/accounts/dashboard/")      
+.then((res) => {
         setData(res.data);
 
-        if (res.data.profile_picture) {
-          const imageUrl = res.data.profile_picture.startsWith("http")
-            ? res.data.profile_picture
-            : `http://127.0.0.1:8000${res.data.profile_picture}`;
-          setProfileImage(imageUrl);
-        }
+       if (res.data.profile_picture) {
+  const imageUrl = res.data.profile_picture.startsWith("http")
+    ? res.data.profile_picture
+    : `${import.meta.env.VITE_API_URL}${res.data.profile_picture}`;
 
+  setProfileImage(imageUrl);
+}
         form.setFieldsValue({
           username: res.data.username,
           email: res.data.email,
@@ -86,8 +85,7 @@ export default function Dashboard() {
       formData.append("profile_picture", values.profile_picture.file);
     }
 
-    API.put("accounts/update-profile/", formData)
-      .then(() => {
+API.put("/accounts/update-profile/", formData)      .then(() => {
         message.success("Profile updated!");
         setEditModalVisible(false);
         loadDashboard();

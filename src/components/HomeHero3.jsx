@@ -1,13 +1,13 @@
 import { Container, Row, Col, Button, Modal, Form } from "react-bootstrap";
 import { useEffect, useState } from "react";
-import axios from "axios";
+import API from "../api/axios";
 import "./HomeHero3.css";
-
-const BASE_URL = "http://127.0.0.1:8000";
 
 export default function HomeHero3() {
   const [reviews, setReviews] = useState([]);
   const [show, setShow] = useState(false);
+
+  const BASE_URL = import.meta.env.VITE_API_URL;
 
   const [formData, setFormData] = useState({
     name: "",
@@ -18,7 +18,7 @@ export default function HomeHero3() {
 
   const fetchReviews = async () => {
     try {
-      const res = await axios.get(`${BASE_URL}/api/reviews/`);
+      const res = await API.get("/reviews/");
       setReviews(res.data);
     } catch (err) {
       console.log("Fetch error:", err);
@@ -52,7 +52,7 @@ export default function HomeHero3() {
     }
 
     try {
-      await axios.post(`${BASE_URL}/api/reviews/create/`, data, {
+      await API.post("/reviews/create/", data, {
         headers: { "Content-Type": "multipart/form-data" },
       });
 
@@ -75,41 +75,46 @@ export default function HomeHero3() {
     <section className="hero3-section">
       <Container>
 
-        <h2 className="text-center  mb-5">What Our Learners Say</h2>
+        <h2 className="text-center mb-5">
+          What Our Learners Say
+        </h2>
 
-<div className="reviews-wrapper mt-4">
-  <Row className="reviews-row g-4">
+        <div className="reviews-wrapper mt-4">
+          <Row className="reviews-row g-4">
 
-    {reviews.slice(0, 4).map((review) => (
-      <Col md={6} lg={3} key={review.id}>
-        <div className="review-card">
-          <p>{review.comment}</p>
+            {reviews.slice(0, 4).map((review) => {
+              const avatarUrl = review.avatar
+                ? review.avatar.startsWith("http")
+                  ? review.avatar
+                  : `${BASE_URL}${review.avatar}`
+                : "https://via.placeholder.com/50";
 
-          <div className="review-user">
-            <img
-              src={
-                review.avatar
-                  ? review.avatar.startsWith("http")
-                    ? review.avatar
-                    : `${BASE_URL}${review.avatar}`
-                  : "https://via.placeholder.com/50"
-              }
-              alt="avatar"
-              className="review-avatar"
-            />
+              return (
+                <Col md={6} lg={3} key={review.id}>
+                  <div className="review-card">
+                    <p>{review.comment}</p>
 
-            <div>
-              <strong>{review.name}</strong>
-              <div className="level-text">{review.level}</div>
-            </div>
-          </div>
+                    <div className="review-user">
+                      <img
+                        src={avatarUrl}
+                        alt="avatar"
+                        className="review-avatar"
+                      />
+
+                      <div>
+                        <strong>{review.name}</strong>
+                        <div className="level-text">
+                          {review.level}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </Col>
+              );
+            })}
+
+          </Row>
         </div>
-      </Col>
-    ))}
-
-  </Row>
-</div>
-
 
         <div className="text-center mt-4">
           <Button
@@ -174,9 +179,13 @@ export default function HomeHero3() {
             </Modal.Body>
 
             <Modal.Footer>
-              <Button variant="secondary" onClick={() => setShow(false)}>
+              <Button
+                variant="secondary"
+                onClick={() => setShow(false)}
+              >
                 Cancel
               </Button>
+
               <Button type="submit" variant="dark">
                 Submit
               </Button>
