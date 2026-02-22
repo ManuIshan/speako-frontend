@@ -21,7 +21,7 @@ function Layout() {
   const location = useLocation();
 
   const hideLayout =
-    location.pathname === "/" ||
+    location.pathname === "/login" ||
     location.pathname === "/register";
 
   // Start token refresh service on mount
