@@ -1,6 +1,6 @@
 import axios from "axios";
-
-export const BASE_URL = "https://speako-backend-rgj1.onrender.com";
+console.log("API URL:", import.meta.env.VITE_API_URL);
+export const BASE_URL = import.meta.env.VITE_API_URL;
 
 const API = axios.create({
   baseURL: `${BASE_URL}/api/`,
@@ -10,14 +10,14 @@ let isRefreshing = false;
 let failedQueue = [];
 
 const processQueue = (error, token = null) => {
-  failedQueue.forEach(prom => {
+  failedQueue.forEach((prom) => {
     if (error) {
       prom.reject(error);
     } else {
       prom.resolve(token);
     }
   });
-  
+
   isRefreshing = false;
   failedQueue = [];
 };
@@ -32,8 +32,6 @@ API.interceptors.request.use((req) => {
   return req;
 });
 
-
-// 🔁 RESPONSE INTERCEPTOR (AUTO REFRESH)
 API.interceptors.response.use(
   (response) => response,
   async (error) => {
@@ -67,12 +65,12 @@ API.interceptors.response.use(
         );
 
         const newAccess = res.data.access;
+
         if (res.data.refresh) {
           localStorage.setItem("refresh", res.data.refresh);
         }
 
         localStorage.setItem("access", newAccess);
-
         originalRequest.headers.Authorization = `Bearer ${newAccess}`;
 
         processQueue(null, newAccess);
@@ -80,7 +78,6 @@ API.interceptors.response.use(
         return API(originalRequest);
 
       } catch (err) {
-        console.error("Token refresh failed:", err);
         localStorage.clear();
         window.location.href = "/login";
         processQueue(err, null);
