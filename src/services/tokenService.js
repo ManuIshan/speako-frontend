@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "http://127.0.0.1:8000";
+const BASE_URL = import.meta.env.VITE_API_URL;
 
 export const setupTokenRefresh = () => {
   const refreshInterval = setInterval(async () => {
@@ -21,54 +21,50 @@ export const setupTokenRefresh = () => {
       const currentTime = Date.now();
       const timeUntilExpiry = expiryTime - currentTime;
 
+      // If less than 1 minute remaining
       if (timeUntilExpiry < 60000) {
         console.log("🔄 Proactively refreshing token...");
-        
+
         const res = await axios.post(
           `${BASE_URL}/api/accounts/refresh/`,
           { refresh: refreshToken }
         );
 
         localStorage.setItem("access", res.data.access);
-        
+
         if (res.data.refresh) {
           localStorage.setItem("refresh", res.data.refresh);
         }
 
-        console.log("Token refreshed successfully");
+        console.log("✅ Token refreshed successfully");
       }
     } catch (err) {
-      console.error(" Token refresh failed:", err.message);
+      console.error("❌ Token refresh failed:", err.message);
       localStorage.clear();
     }
-  }, 5 * 60 * 1000); 
+  }, 5 * 60 * 1000);
 
   return refreshInterval;
 };
 
 export const decodeToken = (token) => {
   try {
-    const payload = JSON.parse(atob(token.split(".")[1]));
-    return payload;
-  } catch (err) {
+    return JSON.parse(atob(token.split(".")[1]));
+  } catch {
     return null;
   }
 };
-
 
 export const isTokenExpired = (token) => {
   const payload = decodeToken(token);
   if (!payload) return true;
 
-  const expiryTime = payload.exp * 1000;
-  return Date.now() >= expiryTime;
+  return Date.now() >= payload.exp * 1000;
 };
-
 
 export const getTokenExpireTime = (token) => {
   const payload = decodeToken(token);
   if (!payload) return 0;
 
-  const expiryTime = payload.exp * 1000;
-  return Math.round((expiryTime - Date.now()) / 1000 / 60);
+  return Math.round((payload.exp * 1000 - Date.now()) / 1000 / 60);
 };

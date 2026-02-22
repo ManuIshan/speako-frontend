@@ -12,7 +12,6 @@ import "./Courses.css";
 import HomeHero6 from "../components/HomeHero6";
 import HomeHero7 from "../components/HomeHero7";
 
-const BASE_URL = "http://127.0.0.1:8000";
 
 export default function Courses() {
   const [courses, setCourses] = useState([]);
