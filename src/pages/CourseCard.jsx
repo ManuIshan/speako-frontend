@@ -4,14 +4,19 @@ import { useNavigate } from "react-router-dom";
 
 export default function CourseCard({ course }) {
   const navigate = useNavigate();
+  const BASE_URL = import.meta.env.VITE_API_URL;
+
+  const imageUrl = course?.image
+    ? course.image.startsWith("http")
+      ? course.image
+      : `${BASE_URL}${course.image}`
+    : null;
 
   return (
     <div className="course-card w-100">
 
       <div className="card-top">
-        <span className="">
-          {course.category}
-        </span>
+        <span>{course.category}</span>
 
         {course.discount_percent > 0 && (
           <span className="badge-discount">
@@ -57,17 +62,14 @@ export default function CourseCard({ course }) {
         </div>
       </div>
 
-      {course.image && (
+      {imageUrl && (
         <img
-          src={
-            course.image.startsWith("http")
-              ? course.image
-              : `http://127.0.0.1:8000${course.image}`
-          }
+          src={imageUrl}
           alt={course.title}
           className="course-image"
         />
       )}
+
     </div>
   );
 }
