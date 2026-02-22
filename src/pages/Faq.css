@@ -1,0 +1,100 @@
+.faq-page {
+  font-family: "Bricolage Grotesque", sans-serif;
+}
+
+.faq-hero {
+  padding: 120px 0 80px 0;
+}
+
+.faq-badge {
+  background: #f3f0ff;
+  color: black;
+  padding: 6px 14px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.faq-hero h1 {
+  font-size: 48px;
+  font-weight: 700;
+  margin-top: 20px;
+}
+
+.faq-hero p {
+  color: #666;
+  margin-top: 15px;
+}
+
+.faq-hero-img {
+  max-width: 350px;
+}
+
+.faq-section {
+  padding: 80px 0;
+  border-top: 1px solid #eee;
+}
+
+.faq-section:first-of-type {
+  border-top: none;
+}
+
+.faq-section-title {
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.faq-item {
+  background: #f7f7f7 !important;
+  border-radius: 12px !important;
+  margin-bottom: 15px;
+  border: none !important;
+  overflow: hidden;
+}
+
+.accordion-button {
+  background: #f7f7f7 !important;
+  box-shadow: none !important;
+  font-weight: 500;
+  border-radius: 12px !important;
+}
+
+.accordion-button:not(.collapsed) {
+  color: black !important;
+}
+
+.accordion-body {
+  background: #ffffff;
+  font-size: 14px;
+  color: #555;
+  border-top: 1px solid #eee;
+}
+
+.faq-icon {
+  margin-right: 12px;
+  color: black;
+}
+
+@media (max-width: 992px) {
+  .faq-hero {
+    padding: 80px 20px;
+  }
+
+  .faq-hero h1 {
+    font-size: 36px;
+  }
+
+  .faq-section {
+    padding: 60px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .faq-hero h1 {
+    font-size: 28px;
+  }
+
+  .faq-section-title {
+    margin-bottom: 20px;
+  }
+}

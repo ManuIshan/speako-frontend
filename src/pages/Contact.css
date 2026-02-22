@@ -1,0 +1,181 @@
+.contact-page {
+    
+  padding: 120px 260px;
+  background: white;
+  font-family: "Bricolage Grotesque", sans-serif;
+}
+
+.contact-hero {
+  margin-bottom: 80px;
+}
+
+.contact-badge {
+  background: #f0f0ff;
+  color: #6c4df6;
+  padding: 6px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.contact-page h1 {
+  font-size: 52px;
+  font-weight: 700;
+  margin-top: 20px;
+  color: #111;
+}
+
+.contact-page p {
+  color: #555;
+  margin-top: 15px;
+}
+
+.contact-img {
+  max-width: 420px;
+  width: 100%;
+}
+
+.contact-card {
+  background: #ffffff;
+  padding: 28px;
+  border-radius: 18px;
+  margin-bottom: 20px;
+  text-align: center;
+  border: 1px solid #eee;
+  height:23.1%;
+  transition: 0.3s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-5px);
+}
+
+.contact-icon {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color:black;
+}
+
+.contact-card h5 {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.contact-card p {
+  color: #777;
+  font-size: 14px;
+}
+
+
+.form-card {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 22px;
+  border: 1px solid #eee;
+  height: 100%;
+  max-width: 800px;  
+  margin: 0 auto;     
+}
+
+.form-card h4 {
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+
+
+.form-control {
+  border-radius: 14px !important;
+  padding: 14px !important;
+  border: 1px solid #e5e5e5 !important;
+  background: #fafafa;
+}
+
+.form-control:focus {
+  box-shadow: none !important;
+  border-color:black !important;
+  background: #ffffff;
+}
+
+
+.send-btn {
+  width: 100%;
+  padding: 14px !important;
+  border-radius: 14px !important;
+  background:black !important;
+  border: none !important;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+.send-btn:hover {
+  transform: translateY(-3px);
+  opacity: 0.9;
+}
+
+.follow-section {
+  margin-top: 80px;
+}
+
+.follow-section h4 {
+  font-weight: 600;
+}
+
+.social-card {
+  background: #ffffff;
+  padding: 18px 25px;
+  border-radius: 14px;
+  border: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.3s ease;
+  max-width: 500px;  
+  margin: 0 auto;      
+}
+
+.social-card:hover {
+  transform: translateY(-4px);
+}
+
+
+@media (max-width: 992px) {
+  .contact-page {
+    padding: 90px 0;
+  }
+
+  .contact-page h1 {
+    font-size: 38px;
+  }
+
+  .form-card {
+    padding: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-page h1 {
+    font-size: 30px;
+  }
+
+  .contact-img {
+    margin-top: 30px;
+  }
+
+  .form-card {
+    padding: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-page {
+    padding: 70px 15px;
+  }
+
+  .contact-page h1 {
+    font-size: 24px;
+  }
+
+  .form-card {
+    padding: 20px;
+  }
+}

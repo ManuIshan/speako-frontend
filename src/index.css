@@ -1,0 +1,8 @@
+  :root {
+  --font-family-bricolage-grotesque: "Bricolage Grotesque", sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family-bricolage-grotesque) !important;
+}

@@ -1,0 +1,120 @@
+.enroll-page {
+  padding: 100px 0;
+  background: #ffffff;
+  font-family: "Bricolage Grotesque", sans-serif;
+}
+
+
+.enroll-card {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+  border: 1px solid #f2f2f2;
+  position: relative;
+}
+
+.secure-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffe6e6;
+  color: black;
+  padding: 6px 14px;
+  border-radius: 30px;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+.enroll-card h2 {
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: #111;
+}
+
+
+.input-group-custom label {
+  font-weight: 500;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.icon {
+  color: black;
+}
+
+.form-control {
+  border-radius: 12px !important;
+  padding: 12px;
+  border: 1px solid #ddd;
+  transition: 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: black !important;
+  box-shadow: 0 0 0 0.15rem rgba(214, 0, 0, 0.15) !important;
+}
+
+
+.pay-btn {
+  background: black !important;
+  border: none !important;
+  padding: 14px;
+  border-radius: 14px !important;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.pay-btn:hover {
+  background: black !important;
+  transform: translateY(-2px);
+}
+
+
+.enroll-image-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.enroll-image {
+  max-width: 100%;
+  height: auto;
+}
+
+
+@media (max-width: 992px) {
+  .enroll-page {
+    padding: 80px 0;
+  }
+
+  .enroll-card {
+    padding: 30px;
+  }
+
+  .enroll-card h2 {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .enroll-image-wrapper {
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .enroll-page {
+    padding: 60px 15px;
+  }
+
+  .enroll-card {
+    padding: 25px;
+  }
+
+  .pay-btn {
+    padding: 12px;
+  }
+}

@@ -1,0 +1,397 @@
+.courses-section {
+  padding: 120px 0;
+  margin-bottom: -120px;
+  font-family: "Bricolage Grotesque", sans-serif;
+}
+
+.courses-header {
+  margin-bottom: 120px;
+}
+
+.courses-badge {
+  background: #f3f0ff;
+  color: black;
+  padding: 6px 14px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.courses-header h1 {
+  font-size: 54px;
+  font-weight: 700;
+  margin-top: 20px;
+}
+
+.courses-header p {
+  color: #666;
+  margin-top: 10px;
+}
+
+.courses-hero-img {
+  max-width: 100%;
+  height: auto;
+}
+
+.category-block {
+  margin-bottom: 120px;
+}
+
+.category-left {
+  padding-right: 40px;
+}
+
+.category-icon {
+  font-size: 28px;
+  color:black;
+  margin-bottom: 15px;
+}
+
+.category-left h2 {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.category-left p {
+  color: #666;
+  margin-top: 10px;
+}
+.course-card {
+  background: rgb(253, 251, 251) !important;
+  padding: 20px;
+  border-radius: 22px;
+  border: 1px solid rgb(220, 220, 220);
+  transition: 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  overflow: hidden;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.card-category {
+  background: rgb(237, 234, 234);
+  color: black;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.card-discount {
+  background: rgb(237, 234, 234) !important;
+  color: black !important;
+  padding: 6px 12px !important;
+  border-radius: 8px !important;
+  font-size: 12px !important;
+}
+
+.course-card h4 {
+  font-weight: 600;
+  font-size: 18px;
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+
+.course-buttons {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.enroll-btn {
+  background: black !important;
+  color: white !important;
+  border: none !important;
+  padding: 12px 16px !important;
+  border-radius: 12px !important;
+  flex: 1;
+  font-size: 13px !important;
+  font-weight: 500;
+  min-width: 100px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.enroll-btn:hover {
+  background: #333 !important;
+  transform: translateY(-2px);
+}
+
+.learn-btn {
+  background: black !important;
+  color: white !important;
+  border: none !important;
+  padding: 12px 16px !important;
+  border-radius: 12px !important;
+  flex: 1;
+  font-size: 13px !important;
+  font-weight: 500;
+  min-width: 100px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.learn-btn:hover {
+  background: #333 !important;
+  transform: translateY(-2px);
+}
+
+.card-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.card-meta span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+  min-width: 80px;
+}
+
+.card-image {
+  width: 100%;
+  overflow: hidden;
+  margin-top: auto;
+}
+
+.card-image img {
+  width: 100%;
+  border-radius: 15px;
+  object-fit: cover;
+  max-height: 240px;
+  display: block;
+}
+
+@media (max-width: 992px) {
+  .courses-header h1 {
+    font-size: 36px;
+  }
+
+  .category-left {
+    margin-bottom: 40px;
+  }
+
+  .course-card {
+    padding: 18px;
+    width: 100%;
+  }
+
+  .course-card h4 {
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+
+  .course-buttons {
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+
+  .enroll-btn,
+  .learn-btn {
+    font-size: 12px !important;
+    padding: 10px 12px !important;
+  }
+
+  .card-meta {
+    font-size: 11px;
+  }
+
+  .card-image img {
+    max-height: 180px;
+  }
+}
+
+@media (max-width: 768px) {
+  .courses-header {
+    text-align: center;
+  }
+
+  .courses-header h1 {
+    font-size: 28px;
+  }
+
+  .courses-header p {
+    font-size: 14px;
+  }
+
+  .category-block {
+    margin-bottom: 80px;
+  }
+
+  .category-left {
+    padding-right: 0;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  .category-left h2 {
+    font-size: 22px;
+  }
+
+  .category-left p {
+    font-size: 13px;
+  }
+
+  .course-card {
+    padding: 16px;
+    max-width: 95%;
+    margin: 0 auto;
+    height: auto;
+  }
+
+  .card-top {
+    margin-bottom: 12px;
+    gap: 6px;
+  }
+
+  .card-category {
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+
+  .course-card h4 {
+    font-size: 15px;
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+
+  .course-buttons {
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  .enroll-btn,
+  .learn-btn {
+    font-size: 12px !important;
+    padding: 9px 12px !important;
+    flex: 1;
+  }
+
+  .card-meta {
+    font-size: 11px;
+    margin-bottom: 12px;
+    gap: 4px;
+  }
+
+  .card-meta span {
+    flex: 1;
+    min-width: 70px;
+  }
+
+  .card-image {
+    margin-top: 0px;
+  }
+
+  .card-image img {
+    max-height: 220px;
+    border-radius: 12px;
+    width: 80%;
+  }
+}
+
+@media (max-width: 480px) {
+  .courses-header h1 {
+    font-size: 21px;
+  }
+
+  .courses-header p {
+    font-size: 12px;
+  }
+
+  .courses-badge {
+    font-size: 10px;
+    padding: 3px 8px;
+  }
+
+  .category-left h2 {
+    font-size: 16px;
+  }
+
+  .category-left p {
+    font-size: 11px;
+  }
+
+  .course-card {
+    padding: 13px;
+    border-radius: 13px;
+    max-width: 90%;
+    width: 100%;
+    margin: 0 auto !important;
+    height: auto;
+  }
+
+  .card-top {
+    margin-bottom: 10px;
+    gap: 3px;
+  }
+
+  .card-category {
+    font-size: 10px;
+    padding: 2px 6px;
+  }
+
+  .course-card h4 {
+    font-size: 13px;
+    margin-bottom: 10px;
+    line-height: 1.2;
+  }
+
+  .course-buttons {
+    gap: 5px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+
+  .enroll-btn,
+  .learn-btn {
+    font-size: 9px !important;
+    padding: 6px 6px !important;
+    flex: 1;
+    min-width: 55px;
+  }
+
+  .card-meta {
+    font-size: 9px;
+    margin-bottom: 10px;
+    gap: 2px;
+  }
+
+  .card-meta span {
+    flex: 1;
+    min-width: 50px;
+  }
+
+  .card-image {
+    margin-top: 8px;
+  }
+
+  .card-image img {
+    max-height: 180px;
+    border-radius: 10px;
+    width: 100%;
+    display: block;
+  }
+}

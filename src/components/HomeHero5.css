@@ -1,0 +1,67 @@
+.hero5-section {
+  padding: 120px 0;
+  background: #ffffff;
+}
+
+.hero5-content h2 {
+  font-size: 56px;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+.hero5-content p {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.hero5-buttons {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.primary-btn {
+  background:black !important;
+  border: none !important;
+  padding: 13px 28px !important;
+  border-radius: 14px !important;
+  font-size: 14px   !important;
+}
+
+.secondary-btn {
+  background:black;
+  border: none !important;
+  padding: 13px 28px !important;
+  border-radius: 14px !important;
+    font-size: 14px   !important;
+
+}
+
+.hero5-image-wrapper {
+  padding: 50px;
+  border-radius: 30px;
+}
+
+.hero5-image {
+  max-width: 55%;
+}
+
+@media (max-width: 992px) {
+  .hero5-content {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .hero5-content h2 {
+    font-size: 36px;
+  }
+
+  .hero5-buttons {
+    justify-content: center;
+  }
+  
+.hero5-image {
+  max-width: 75%;
+}
+}

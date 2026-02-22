@@ -1,0 +1,105 @@
+.hero4-section {
+  padding: 100px 0;
+  font-family: "Bricolage Grotesque", sans-serif;
+  background: #ffffff;
+}
+
+.hero4-header {
+  margin-bottom: 70px;
+}
+
+.hero4-badge {
+  display: inline-block;
+  background: #e7e5ff;
+  padding: 6px 14px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  color: black;
+  margin-bottom: 20px;
+}
+
+.hero4-title {
+  font-size: 52px;
+  font-weight: 700;
+  color: #111;
+  line-height: 1.2;
+}
+
+.feature-box {
+  padding: 20px 10px;
+  transition: 0.3s ease;
+}
+
+.feature-box:hover {
+  transform: translateY(-6px);
+}
+
+.feature-icon {
+  color: black;
+  margin-bottom: 20px;
+}
+
+.feature-box h5 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #111;
+}
+
+.feature-box p {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.6;
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+
+@media (max-width: 1200px) {
+  .hero4-title {
+    font-size: 44px;
+  }
+}
+
+@media (max-width: 992px) {
+  .hero4-section {
+    padding: 100px 0;
+  }
+
+  .hero4-title {
+    font-size: 38px;
+  }
+
+  .feature-box p {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero4-title {
+    font-size: 30px;
+  }
+
+  .hero4-badge {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero4-section {
+    padding: 80px 15px;
+  }
+
+  .hero4-title {
+    font-size: 24px;
+  }
+
+  .feature-box h5 {
+    font-size: 18px;
+  }
+
+  .feature-box p {
+    font-size: 14px;
+  }
+}

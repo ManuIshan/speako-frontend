@@ -1,0 +1,163 @@
+.about-page {
+  font-family: "Bricolage Grotesque", sans-serif;
+}
+.about-hero {
+  padding: 120px 0 80px 0;
+}
+
+.about-badge {
+  background: #f3f0ff;
+  color: black;
+  padding: 6px 14px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.about-hero h1 {
+  font-size: 55px;
+  font-weight: 700;
+  max-width: 850px;
+  margin: 25px auto;
+  line-height: 1.3;
+}
+
+.about-hero-image img {
+  max-width: 400px;
+  margin-top: 40px;
+}
+
+.about-stats {
+  background: #f7f7f7;
+  padding: 60px 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+.stat-item {
+  padding: 20px 10px;
+}
+
+.stat-icon {
+  font-size: 24px;
+  color: black;
+  margin-bottom: 10px;
+}
+
+.stat-item h2 {
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.stat-item p {
+  color: #666;
+  font-size: 14px;
+}
+
+.stat-border {
+  border-left: 1px solid #ddd;
+}
+
+.about-values {
+  padding: 120px 0;
+}
+
+.values-header h2 {
+  font-size: 40px;
+  font-weight: 700;
+  margin-top: 20px;
+}
+
+.values-badge {
+  background: #f3f0ff;
+  color: black;
+  padding: 6px 14px;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.values-image img {
+  width: 70%;
+  border-radius: 20px;
+  background: #ffffff;
+  padding: 40px;
+}
+
+.value-item {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.value-number {
+  min-width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: 2px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  color: black;
+}
+
+.value-item h4 {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.value-item p {
+  color: #666;
+  font-size: 14px;
+}
+@media (max-width: 992px) {
+  .about-hero h1 {
+    font-size: 36px;
+  }
+
+  .stat-border {
+    border-left: none;
+  }
+
+  .about-values {
+    padding: 80px 0;
+  }
+
+  .values-header h2 {
+    font-size: 32px;
+  }
+
+  .value-item {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-hero {
+    padding: 80px 20px;
+  }
+
+  .about-hero h1 {
+    font-size: 28px;
+  }
+
+  .about-hero-image img {
+    max-width: 280px;
+  }
+}
+.value-number {
+  width: clamp(32px, 3vw, 42px);
+  height: clamp(32px, 3vw, 42px);
+  border-radius: 50%;
+  border: 2px solid black;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 600;
+  font-size: clamp(12px, 1.5vw, 16px);
+
+  flex-shrink: 0; /* 🔥 important */
+}

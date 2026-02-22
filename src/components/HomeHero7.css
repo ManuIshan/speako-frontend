@@ -1,0 +1,35 @@
+.hero7-section {
+  margin-bottom: -190px;
+  padding-bottom: 120px !important;
+  z-index: 2;
+}
+
+.hero7-card {
+  background:rgb(253, 251, 251);
+  padding: 60px 40px;
+  border-radius: 30px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.hero7-card:hover {
+  transform: translateY(-8px);
+}
+
+.hero7-card img {
+  max-width: 150px;
+  margin-bottom: 25px;
+}
+
+.hero7-card h3 {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+
+.hero7-btn {
+  background:black !important;
+  border: none !important;
+  padding: 12px 28px;
+  border-radius: 14px !important;
+}

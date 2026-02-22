@@ -1,0 +1,94 @@
+.footer-section {
+  background:black;
+  color: white;
+  padding: 140px 0 40px;
+  font-family: "Bricolage Grotesque", sans-serif;
+}
+
+
+.footer-top {
+  margin-bottom: 120px;
+}
+
+.footer-small-logo {
+  width: 23px;
+  height: 23px;
+  filter: brightness(0) invert(1);
+}
+
+.footer-logo-text {
+  font-weight: 600;
+  margin: 0;
+  font-size: 20px;
+}
+
+.footer-links a {
+  color: white;
+  margin-left: 25px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: 0.3s ease;
+}
+
+
+
+.footer-big-wrapper {
+  text-align: center;
+  margin: 80px 0;
+}
+
+.footer-big-logo {
+  width:1250px;
+  max-width: 100%;
+  opacity: 0.95;
+  filter: brightness(0) invert(1); 
+}
+
+
+.footer-bottom {
+  margin-top: 70px;
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+
+@media (max-width: 992px) {
+  .footer-big-logo {
+    width: 450px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-top {
+    text-align: center;
+    gap: 20px;
+  }
+
+  .footer-links {
+    margin-top: 20px;
+  }
+
+  .footer-links a {
+    display: inline-block;
+    margin: 10px 12px;
+  }
+
+  .footer-big-logo {
+    width: 300px;
+  }
+
+  .footer-bottom {
+    text-align: center;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-section {
+    padding: 120px 0 30px;
+  }
+
+  .footer-big-logo {
+    width: 300px;
+  }
+}
